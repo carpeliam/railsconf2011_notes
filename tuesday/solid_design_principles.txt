@@ -1,0 +1,11 @@
+principles from Agile Software Development by Robert C. Martin
+
+Single Responsibility Principle
+Open/Closed Principle
+Liskov Substitution Principle
+Interface Segregation Principle
+Dependency Inversion Principle
+
+Single Responsibility Principle
+ - "a class should only have one reason to change."
+ 
