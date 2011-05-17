@@ -1,0 +1,67 @@
+Keeping Rails on the Tracks
+online: http://speakerrate.com/talks/7575
+
+strive for something in between the extremes:
+pragmatically working code > *maintainable code* < sexy code
+healthy balance between doing the minimal and over-architecting
+
+A Product ...
+  if it's not delivered, it's a waste of time.
+  beautiful code is ugly if nobody buys it.
+    customers buy solutions, not code.
+  
+  
+Deployment - First Class Citizen
+  Server Setup - repeatable configuration (chef, puppet, etc)
+  use bundler
+    if you need to depend on something you don't own, fork it and depend on that
+  repeatable
+  
+  db/seeds.rb is underused. if you've got setup data, use it.
+  
+  link in (ln -s) security passwords from shared YAML file (try out the "App" gem)
+  
+  *documentation*: use the README!
+  
+  
+Fast Page? Happy Client.
+  CSS sprites
+  caching: fragment caching, action caching, page caching.
+    before fragment caching = 2480ms, after = 120ms
+
+
+Big Session? Slow site.
+  store values, not objects.
+  don't make a session "cart" for every user
+  
+  
+Opinions Matter
+  This is Rails, afterall
+  ...so, use the idioms. !!nil, x.present?
+  remove useless code: less code = less bugs
+
+
+Being Smart Can Be Stupid
+  - write code that can be read by someone else without context
+  before/after/around filters shouldn't be used for object instantiation
+  - filters are for state modification
+  keep tests simple
+    use helper methods to do what before(:each) block might do if it helps readability
+    "def given_a_logged_in_user"
+  simple is always better than complex- meta-programming should be used with discretion
+  good code = easy to read
+
+Use the Right Tool
+  Cucumber is not for unit testing, do not check for everything
+  5-level deep nested ternary is perhaps a bad idea.
+
+Databases ... have feelings.
+  You don't need database agnostic code. (At least, probably not.)
+  Feel free to interact directly with the db if it's a little faster.
+  don't share the db, refactor into API calls.
+
+  @account.person.meetings.today.map{||} = TRAIN WRECK
+  control flow is code smell, break out into methods.
+  
+
+How to Stay on Track? = Maintainable Code.
