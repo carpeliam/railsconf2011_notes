@@ -1,0 +1,44 @@
+ActiveSupport 3: What We Should Know About What We Don't
+ - slides at http://bit.ly/bryanl-rc2011 -> http://smartic.us/doodads/presentations/railsconf2011/
+
+History Lesson
+
+Ruby Facets - ruby core extensions library
+  Core
+    string interpolation
+    symbolizing keys
+    manipulating time (time.shift)
+  More
+    random letter picker
+    memoization
+  On Tour
+    y-combinator
+
+ActiveSupport
+  history
+    extracted from ActionPack/ActiveRecord
+  101
+    constantize, singularize, pluralize
+    time zones
+  
+  Accessors
+    mattr_accessor/cattr_accessor
+    attr_accessor_with_default
+  Benchmarks
+    benchmark "do some crazy stuff" do
+      crazy_fast_or_slow_method
+    end
+  Callbacks
+    define_callbacks, set_callbacks
+  Concerns
+    "extend ClassMethods, include InstanceMethods"
+  Configurable
+    gives freebie configuration
+  Listen
+    
+  Other Neat Stuff
+    Gzip
+    SecureRandom
+  
+  What's gotten better?
+    you can only ask for the pieces you want

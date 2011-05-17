@@ -8,4 +8,34 @@ Dependency Inversion Principle
 
 Single Responsibility Principle
  - "a class should only have one reason to change."
+   if you find that your class/module is multi-purpose, consider branching out
+ - this is the first step for modular, extensible code
  
+ 
+Open/Closed Principle
+ - You should be able to extend class behavior without modifying it
+ 
+ Ruby is open... but is also modifiable. Don't abuse this
+ (example: set table name prefix in ApplicationModel which extends AR::Base)
+ 
+ 
+Dependency Inversion Principle
+ "Depend on abstractions, not on concretions"
+ - Use duck typing
+ - define protocols, and use them
+ - remove dependencies
+ - define hooks
+
+
+Liskov Substitution Principle
+  "Derived classes should be substitutable for their base classes"
+  - define "substitutable" but also don't violate the principle
+  - define what you expect and obey when someone tells you that you need to
+
+
+Interface Segregation Principle
+  # make fine grained interfaces that
+  clients should depend on as narrow a protocol as possible
+  in framework, use mocks that represent outside elements
+  
+  code to well-defined and narrow protocols
