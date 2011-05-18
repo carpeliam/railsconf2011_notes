@@ -1,0 +1,12 @@
+What is a graph database?
+  Node
+    - has properties
+    - relationship with direction, and properties
+    
+    cost of node traversal is constant regardless of path length
+
+Neo4j.rb - embedded jruby
+
+ - RESTful
+ 
+ (need to grab the slides)

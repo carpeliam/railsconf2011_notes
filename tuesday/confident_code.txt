@@ -1,0 +1,95 @@
+Confident Code
+==============
+A style of code construction (see: Code Complete)
+
+What is... confident code?
+--------------------------
+The opposite of timid code.
+  - tangents
+  - digressions
+  - lack of certainty
+  - lives in fear
+  - uncertain
+  
+  - mixes input gathering, error handling, business logic
+  - imposes cognitive load on the reader
+
+What is confident code?
+  - says exactly what it intends to
+  - no digressions
+
+example code for talk: https://github.com/avdi/cowsay
+
+  one messy module has 4 parts mixed together:
+    gather input, perform work, deliver results, handle errors
+  this can be put in order.
+
+====================
+STEP 1: GATHER INPUT
+
+Duck Typing is good, switch/case is smelly (these are opposites)
+
+Coersion
+  - to_i, to_s, etc - when in doubt, coerce. (liberally.)
+  - Array-ification: Array(whatever) gives sensible array, works better than .to_a (at least for 1.9)
+  Glueing feathers to a pig
+    - When there is no consistent interface
+    - use a decorator
+      require 'delegate', inherit from SimpleDelegator
+Reject Unexpected Values
+  reject values that are not a duck. not a bird. will eventually cause an error, but not before doing some damage, and won't be easy to debug
+  state your preconditions, assert yourself.
+  raise ArgumentError unless preconditions.met?
+  def assert(value, message="Assertion failed")...
+  Exception will bubble all the way to the top, StandardError won't
+  "raise Exception, message, caller" (caller will make stack trace point to where assertion was made, not where assert was defined)
+Ignore Unnaceptable Values
+  ignore values we can't do anything with.
+  
+  $? is the exit status code of the last subprocess that exited - may contain a process status, or nil
+  status && status.exitstatus, or status.try(:exitstatus)
+  
+  but what about?
+    OpenStruct.new(:exitstatus => 0)
+  null object:
+    def method_missing, return self.. def nil? = true
+    def Maybe returns NullObject.new(obj)
+
+Zero Tolerance for nil
+  ...it doesn't *mean* anything. could mean error, missing data, unitialized...
+  use Hash#fetch when appropriate... can use as an assertion (without a block) or as a default (with a block)
+  @logger = options[:logger] becomes options.fetch(:logger), or options[:logger] or raise
+
+NullObject with origin keeps track of where it was instantiated
+
+====================
+STEP 2: PERFORM WORK
+- PIE: program intently and expressively. say what you mean.
+- conditionals give you more to think about, reserve them for business logic
+
+business logic: 'if post.published?' is better than 'if post'.
+not business logic, 'if post' might be more appropriate.
+
+iterative style
+single object operations are implicitly one-or-error
+iteration is implicitly 0 or more
+
+
+=========
+STEP 3: DELIVER RESULTS
+
+return special case or null object or raise error... DON'T return nil.
+
+========================
+STEP 4: HANDLING FAILURE
+
+put happy path first, put error handling at the end.
+bouncer method, checked method
+
+Observations
+- coherent narrative structure
+- lower complexity
+- NOT necessarily shorter.
+
+fewer paths = fewer bugs
+easier to read/debug

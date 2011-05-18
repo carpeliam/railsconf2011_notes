@@ -1,0 +1,18 @@
+PREPARED STATEMENT SUPPORT IN ACTIVERECORD??!?!??!!?1
+
+but...
+  MySQL doesn't do query planning. boo. can be slower.
+  
+Serialized Attributes
+  arbitrary attributes persisted to the db.
+  
+  serialize :preferences, Base64Encoder.new (encoder has load(value) and dump(text))
+  
+  you can even query on this? whahuh? only works on postgreSQL
+
+has_secure_password ... bound to bcrypt and a particular col.
+
+streaming responses ..
+
+
+middleware... so deep. stack depth... so deep. must improve, hopefully for rails 3.2.

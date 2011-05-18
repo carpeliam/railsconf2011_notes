@@ -1,0 +1,83 @@
+Holy Grail of Databases
+=======================
+Complexity is a symptom of confusion, not a cause
+
+Terms:
+  Database & datastore interchangeable
+  
+  SQL = !NoSQL
+  NoSQL = linear scalability, distributability
+  
+  ACID
+    Atomic, Consistent, Isolated, Durable
+  BASE
+    Basically Available, Soft state, Eventual consistency
+  CAP Theorem
+    consistent, available, persistent: pick 2
+    
+    Consistency:
+      Strong = Atomic
+      Weak = Eventual (eg, DNS)
+    Availability
+      The data is available when I want it.
+    Partition Tolerance
+      can tolerate nodes going down
+    
+    C&A- if you're marooned on a desert island, you won't know how many records beyonce has
+    even with eventual consistency, you still won't know
+    
+  Common Patterns
+    Replication
+      copy data amongst nodes in a distributed db
+      master/slave, etc
+    NRW - nodes to write to per bucket, how many reads, /writes written to before success
+      
+    Consistent Hashing
+      
+    Map Reduce
+      rooms = Room.all
+      caps = rooms.map{|room| room.capacity }
+      result = caps.reduce(0){|sum,capacity| sum+capacity}
+
+Relational
+  PostgreSQL - full-featured
+  MySQL - lighter
+  Drizzle - lightest
+  CONSISTENT + AVAILABLE, but not persistence tolerant
+
+  in MySQL, you can use engines like MEMORY where appropriate
+  Postgres has all sorts of tools built-in like search, or sounds-like
+
+Bigtable/Columnar style
+  HBase
+    thrift gem
+    ORMs are not really necessary here.
+  Cassandra
+    cassandra gem
+
+Document Datastore
+  why? exact opposite usecase of relational schema.
+    - don't make assumptions on how data is stored
+    - queries do become more difficult
+  Mongo
+    built for scaling massively
+    mongoid w/bson_ext (bson = binary json)
+    geolocation is built-in (foursquare uses it)
+  Couch
+    built for durability
+    heavier reliance on map/reduce
+    ported to android? that's crazytalk. but true.
+
+Key/Value Store
+  Riak
+    keys/values can be pretty much anything.. image, video, whatever
+
+  Redis
+    redis, hiredis (c driver)
+
+  Chimera is a combination of redis and riak
+  
+NRW
+  Quorum
+  Weak
+
