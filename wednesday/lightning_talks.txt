@@ -1,0 +1,18 @@
+Freelancing on Rails
+--------------------
+Rails  - perfect for side projects
+  quick development
+
+why?
+  improve skills
+  better understand problem space
+  stay current
+  networking
+  
+
+
+ideas
+  include .rvmrc in git
+  Gemfile.lock - check it in?
+  
+  Ryan McGeary

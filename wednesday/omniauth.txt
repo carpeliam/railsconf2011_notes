@@ -1,0 +1,12 @@
+OmniAuth (from the ground up)
+
+authn for rack apps
+  1: login with anything,
+  2: assume nothing.
+
+Why?
+  so many assumptions in existing libraries.
+
+What Can It Do?
+  oa-identity: does almost nothing. person specifies identity and password, oa-identity takes it in. /auth/identity/register
+  

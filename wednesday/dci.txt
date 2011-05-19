@@ -1,0 +1,13 @@
+inside: what the system is, the object (pretty much just data, and accessors)
+outside: what the system does, the role
+
+context maps objects to roles for specific situation
+
+class MyContext
+  def initialize(*args)
+    my_obj = find_obj_from(args)
+    my_obj.extend MyModule
+  end
+end
+
+roles can be tested by mocking the inside

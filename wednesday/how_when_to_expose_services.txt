@@ -1,0 +1,18 @@
+37 signals has a lot of stuff that they manage.
+Managing all that stuff is difficult:
+  keeping all the plugins current
+  supporting/testing multiple ruby/rails versions
+
+redirect-to-service
+  plugin as a service, served as its own website
+  examples: google maps, braintree (credit card processing)
+  drawbacks:
+    if this service goes down, it *sucks*.
+    hard to customize
+
+web-service
+  query the redirect-to-service service to see if it's up before redirecting there
+  drawback: latency.
+
+shared database
+  
