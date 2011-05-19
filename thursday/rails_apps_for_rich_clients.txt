@@ -1,0 +1,8 @@
+Rails Apps for the Rich Clients
+===============================
+"Everything will just talk over json, so why do we need Rails?"
+We still do.
+ (security: coda hale timing attack - http://codahale.com/a-lesson-in-timing-attacks/)
+
+There are lots of ways to do templates with JS - Eco, jQuery Templates, mustache, handlebars
+
